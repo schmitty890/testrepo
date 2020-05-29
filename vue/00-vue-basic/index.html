@@ -8,10 +8,11 @@
 </head>
 <body class="container mt-4">
   <div id="app">
-    <img :src="image" :alt="title" />
-    <h2>{{ title }}</h2>
-    <p>{{ description }}</p>
-
+    <div v-for="item in products" style="border: 1px solid">
+      <img :src="item.image" :alt="item.title" />
+      <h2>{{ item.title }}</h2>
+      <p>{{ item.description }}</p>
+    </div>
   </div>
   
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -22,9 +23,19 @@
   <script>
 
     var data = {
-      "title": "Vue test",
-      "description": "A very cool description",
-      "image": "https://via.placeholder.com/150"
+      products: [{
+        "title": "Vue test",
+        "description": "A very cool description",
+        "image": "https://via.placeholder.com/150"
+      },{
+        "title": "Vue test two",
+        "description": "A second very cool description",
+        "image": "https://via.placeholder.com/150"
+      },{
+        "title": "Vue test three",
+        "description": "A third very cool description",
+        "image": "https://via.placeholder.com/150"
+      }]
     };
 
     var app = new Vue({
